@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Photo — Платформа</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <div id="bootLoader" class="boot-loader">
+    <div class="boot-card">
+      <p class="boot-label">Загрузка данных</p>
+      <h2>Проверяем доступ к курсу</h2>
+      <div class="progress-track">
+        <div id="bootBar" class="progress-fill"></div>
+      </div>
+      <p id="bootStatus">Подключение к таблице...</p>
+    </div>
+  </div>
+
+  <div id="deniedScreen" class="state-screen hidden">
+    <div class="state-card">
+      <h2>Нет доступа</h2>
+      <p id="deniedText">Нет доступа, обратитесь в поддержку.</p>
+      <a href="https://t.me/das8ash" target="_blank" rel="noopener noreferrer">Написать в поддержку</a>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <main class="platform-layout">
+      <section class="main-column">
+        <header class="course-hero glass-panel">
+          <div class="hero-meta">
+            <span class="hero-label">О курсе</span>
+            <span class="hero-platform">ID: <span id="platformIdLabel">—</span></span>
+          </div>
+          <h1 id="courseTitle">Pro Photo</h1>
+          <p>Проходите уроки по порядку, отмечайте прогресс и возвращайтесь к месту, где остановились.</p>
+        </header>
+
+        <section class="modules-panel glass-panel">
+          <div class="panel-head">
+            <h2>Модули курса</h2>
+          </div>
+          <nav id="sectionList" class="module-grid"></nav>
+        </section>
+
+        <section class="lesson-panel glass-panel">
+          <div class="panel-head lesson-head">
+            <div>
+              <h3 id="activeSectionTitle">Рабочая зона урока</h3>
+              <p id="activeSectionSubtitle"></p>
+            </div>
+          </div>
+
+          <div class="lesson-layout">
+            <aside id="lessonRail" class="lesson-rail"></aside>
+            <div id="postFeed" class="lesson-stage-wrap"></div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="side-column">
+        <section class="progress-panel glass-panel">
+          <h3>Ваш прогресс</h3>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 140 140" class="ring-svg" aria-hidden="true">
+              <circle class="ring-track" cx="70" cy="70" r="54"></circle>
+              <circle id="globalProgressCircle" class="ring-fill" cx="70" cy="70" r="54"></circle>
+            </svg>
+            <div class="ring-center">
+              <strong id="globalProgressText">0%</strong>
+              <p><span id="globalProgressDone">0</span> из <span id="globalProgressTotal">0</span> уроков</p>
+            </div>
+          </div>
+        </section>
+
+        <a id="chatLink" class="side-link glass-panel" href="https://t.me/+npNA7tqyVyMyMDcy" target="_blank" rel="noopener noreferrer">
+          <span class="side-link-icon">💬</span>
+          <span class="side-link-text">Чат курса</span>
+        </a>
+
+        <a id="supportLink" class="side-link glass-panel" href="https://t.me/das8ash" target="_blank" rel="noopener noreferrer">
+          <span class="side-link-icon">🛟</span>
+          <span class="side-link-text">Поддержка</span>
+        </a>
+      </aside>
+    </main>
+  </div>
+
+  <div id="photoModal" class="photo-modal hidden">
+    <button id="closeModalBtn" class="modal-close" type="button">×</button>
+    <button id="modalPrevBtn" class="modal-nav modal-nav-prev" type="button" aria-label="Предыдущее фото">‹</button>
+    <div class="photo-modal-stage">
+      <img id="modalImage" src="" alt="Фото">
+      <div id="modalCounter" class="modal-counter">1 / 1</div>
+    </div>
+    <button id="modalNextBtn" class="modal-nav modal-nav-next" type="button" aria-label="Следующее фото">›</button>
+  </div>
+
+  <script src="course-data.js"></script>
+  <script src="demo-config.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>
